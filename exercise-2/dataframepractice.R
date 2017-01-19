@@ -10,11 +10,11 @@ salaries.2014 <- runif(100, min=40000, max=50000)
 # Hint: use `runif()` to add a random number to 2014's salaries. Starting from a
 # _negative_ number so that salaries may decrease!
 salaries.2015 <- salaries.2014 + runif(100, min= -10000, max=20000)
-
+View(salaries.2014)
 # Create a data.frame 'salaries' by combining the 3 vectors you just made
 # Remember to set `stringsAsFactors=FALSE`!
 salaries <- data.frame(employees, salaries.2014, salaries.2015, stringsAsFactors = FALSE)
-salaries
+View(salaries)
 # Create a column 'raise' that stores the size of the raise between 2014 and 2015
 salaries$raise <- c(salaries.2015- salaries.2014)
 salaries
@@ -29,13 +29,13 @@ salaries
 salaries [57,3]
 
 # How many employees got a raise?
-salaries [5] 
-
+length(salaries$got.raise[salaries$got.raise == TRUE]) 
+sum(salaries$got.raise)
 # What was the value of the highest raise?
-
+max(salaries$raise)
 
 # What was the "name" of the employee who received the highest raise?
-
+salaries[salaries$raise == max(salaries$raise) ,"employees"]
 
 # What was the largest decrease in salaries between the two years?
 
